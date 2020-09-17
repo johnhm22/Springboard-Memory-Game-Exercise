@@ -6,3 +6,32 @@
   display: inline-block;
 }
 
+#totalClicks{
+  color: red;
+  font-size: 1.5rem;
+  display: inline;
+  margin-left: 1.5rem;
+  background-color: yellow;
+}
+
+h2{
+  display: inline;
+}
+
+
+p{
+  display: inline;
+  color: blueviolet;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+button{
+  margin-left: 2rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+
+

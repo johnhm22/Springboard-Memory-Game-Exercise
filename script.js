@@ -58,8 +58,11 @@ createDivsForColors(shuffledColors);
 
 let clickCount = 0;
 let cardClickedTempRecord =[];
-// let targetCard;
-// let cardColor;
+let totalClicks = 0;
+let ranking  = [];
+let clicks = document.querySelector('#totalClicks');
+
+
 
 //Make sure that you cannot click too quickly and guess more than two cards at a time.
 
@@ -71,6 +74,9 @@ function handleCardClick(event) {
 
   //keeps a count of number of cards selected to avoid more than two being exposed (see if condition at bottom of function)
   clickCount++;
+  totalClicks++;
+
+  clicks.innerText = totalClicks;
 
   // you can use event.target to see which element was clicked
  let cardColor = event.target.className; //this retieves the class(color);
@@ -103,7 +109,7 @@ if(clickCount === 2){
   revertCardColor();
   clickCount = 0;
   cardClickedTempRecord.splice(0);
- }; 
+  };
 }
 
 //function that defines the 1 sec delay between the second card being selected and both cards having color removed if there is no match
@@ -121,11 +127,21 @@ function removeCardColor(){
   }
 }
 
-//doesn't have desired effect
-// function revealColorWithDelay(){
-//   setTimeout(revealColor, 100);
-// };
 
-// function revealColor (){
-//         targetCard.style.backgroundColor = cardColor;
-//       };
+//trigges reset() when Reset button clicked
+resetButton = document.querySelector('button');
+resetButton.addEventListener('click', function(){
+  reset()
+  }
+);
+
+//removes all divs, creates them again with a new set of colors
+function reset(){
+  let clearDivs = document.querySelectorAll('div');
+  for(let div of clearDivs){
+    div.remove();
+  };
+    shuffledColors = shuffle(COLORS);
+    createDivsForColors(shuffledColors);
+    clicks.innerText = 0;
+};
