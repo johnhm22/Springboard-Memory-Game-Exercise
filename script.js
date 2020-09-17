@@ -1,5 +1,7 @@
 const gameContainer = document.getElementById("game");
 
+//test change
+
 const COLORS = [
   "red",
   "blue",
